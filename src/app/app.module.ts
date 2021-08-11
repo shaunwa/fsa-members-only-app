@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +17,8 @@ import { GroupsListComponent } from './groups-list/groups-list.component';
 import { MyGroupsListComponent } from './my-groups-list/my-groups-list.component';
 import { MessagesListComponent } from './messages-list/messages-list.component';
 import { RequestsListComponent } from './requests-list/requests-list.component';
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,10 @@ import { RequestsListComponent } from './requests-list/requests-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+	AngularFireModule.initializeApp(environment.firebase),
+	AngularFireAnalyticsModule,
+	AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
