@@ -1,1 +1,12 @@
-<p>my-groups-list works!</p>
+<p *ngIf="isLoading">Loading...</p>
+<ng-container *ngIf="!isLoading">
+	<div className="list-item" *ngFor="let group of groups">
+        <div className="list-item-data">
+            <a routerLink="/groups/{{ group.id }}">
+                <h3>{{ group.name }}</h3>
+			</a>
+            <p>Owned By: {{ group.owner.fullName }}</p>
+            <p>{{ group.members.length }} members</p>
+        </div>
+	</div>
+</ng-container>

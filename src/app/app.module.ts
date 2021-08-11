@@ -4,6 +4,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +44,7 @@ import { environment } from '../environments/environment';
 	AngularFireAnalyticsModule,
 	AngularFireAuthModule,
 	FormsModule,
+	HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

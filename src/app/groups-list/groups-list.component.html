@@ -1,1 +1,11 @@
-<p>groups-list works!</p>
+<p *ngIf="isLoading">Loading...</p>
+<ng-container *ngIf="!isLoading">
+	<div className="list-item" *ngFor="let group of groups">
+		<div className="list-item-data">
+			<h3>{{ group.name }}</h3>
+			<p>Owned by: {{ group.owner.fullName }}</p>
+			<p>{{ group.members.length }} members</p>
+		</div>
+		<button (click)="onClickAskToJoin(group.id)">Ask to Join</button>
+	</div>
+</ng-container>

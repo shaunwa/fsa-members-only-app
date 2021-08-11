@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GroupsService } from '../groups.service';
+import { Group } from '../types';
 
 @Component({
   selector: 'app-groups-list',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./groups-list.component.css']
 })
 export class GroupsListComponent implements OnInit {
+	@Input() isLoading = true;
+	@Input() groups: Group[] = [];
 
-  constructor() { }
+	constructor(
+		private groupsService: GroupsService,
+	) { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
+
+	onClickAskToJoin(groupId: string): void {
+		this.groupsService.requestToJoinGroup(groupId)
+			.subscribe(() => alert('Successfully submitted request'));
+	}
 
 }
