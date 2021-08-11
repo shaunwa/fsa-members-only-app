@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { environment } from '../environments/environment';
 	AngularFireModule.initializeApp(environment.firebase),
 	AngularFireAnalyticsModule,
 	AngularFireAuthModule,
+	FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
