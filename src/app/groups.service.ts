@@ -48,4 +48,19 @@ export class GroupsService {
 			})
 		});
 	}
+
+	createGroup(name: string): Observable<string> {
+		return new Observable<string>(observer => {
+			this.auth.user.subscribe(user => {
+				user && user.getIdToken().then(token => {
+					if (user && token) {
+						this.http.post<string>(`/api/groups`, { name }, httpOptionsWithAuthToken(token))
+							.subscribe(newGroupId => observer.next(newGroupId));
+					} else {
+						observer.next('');
+					}
+				})
+			})
+		});
+	}
 }

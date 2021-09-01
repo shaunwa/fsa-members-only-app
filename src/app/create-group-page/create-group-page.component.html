@@ -1,1 +1,9 @@
-<p>create-group-page works!</p>
+<div class="centered-container">
+    <h1>Create Group</h1>
+    <input
+        class="full-width"
+        type="text"
+        placeholder="Enter Name for Group"
+        [(ngModel)]="nameValue" />
+    <button (click)="onClickCreateGroup()" class="space-before full-width">Create Group</button>
+</div>
