@@ -1,1 +1,18 @@
-<p>group-page works!</p>
+<div *ngIf="!isLoadingGroup && group" class="centered-container">
+    <h1>{{ group.name }}</h1>
+    <p>Owned by: {{ group.owner.fullName }}</p>
+    <app-messages-list [messages]="messages"></app-messages-list>
+    <div class="new-message-form">
+        <input
+            type="text"
+            placeholder="Type your message here..."
+            [(ngModel)]="messageValue" />
+        <button (click)="addMessage()">Submit</button>
+    </div>
+    <app-requests-list
+        *ngIf="user && group && group.ownerId === user.uid"
+        [requests]="requests"
+        (accept)="acceptRequest($event)"
+        (reject)="rejectRequest($event)"></app-requests-list>
+</div>
+<p *ngIf="isLoadingGroup">Loading...</p>
